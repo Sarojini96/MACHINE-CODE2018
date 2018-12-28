@@ -33,7 +33,7 @@ int probsolvedstatus = 1;
 int idlestatus = 0;
 int idleoffstatus = 1;
 //IPAddress ip(192,168,0,3);//static IP
-char server[] = "192.168.1.101";
+char server[] = "192.168.1.102";
 
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
@@ -125,7 +125,7 @@ void httpRequest()
     {
       onstatus = 1;
       offstatus = 1;
-      client.println(String("GET /ONS HTTP/1.1"));
+      client.println(String("GET /ON/AIDA2 HTTP/1.1"));
       Serial.print("on");
       // gv1=1;
     }
@@ -140,7 +140,7 @@ void httpRequest()
     {
       offstatus = 0;
       onstatus = 0;
-      client.println(String("GET /OFFS HTTP/1.1"));
+      client.println(String("GET /OFF/AIDA2 HTTP/1.1"));
       Serial.print("off");
       //gv =1;
     }
@@ -154,7 +154,7 @@ void httpRequest()
     {
       probstatus = 1;
       probsolvedstatus = 1;
-      client.println(String("GET /PROBLEMS HTTP/1.1"));
+      client.println(String("GET /PROBLEM/AIDA2 HTTP/1.1"));
       Serial.print("problem");
       // rv1=1;
     }
@@ -168,7 +168,7 @@ void httpRequest()
     {
       probsolvedstatus = 0;
       probstatus = 0;
-      client.println(String("GET /PROBLEMSOLVEDS HTTP/1.1"));
+      client.println(String("GET /PROBLEMSOLVED/AIDA2 HTTP/1.1"));
       Serial.print("off");
       //  rv =1;
     }
@@ -176,7 +176,7 @@ void httpRequest()
     {
       idlestatus = 1;
       idleoffstatus = 1;
-      client.println(String("GET /IDLES HTTP/1.1"));
+      client.println(String("GET /IDLE/AIDA2 HTTP/1.1"));
       Serial.print("idle");
       //  rv =1;
     }
@@ -184,7 +184,7 @@ void httpRequest()
     {
       idleoffstatus = 0;
       idlestatus = 0;
-      client.println(String("GET /IDLEOFFS HTTP/1.1"));
+      client.println(String("GET /IDLEOFF/AIDA2 HTTP/1.1"));
       Serial.print("idleoff");
       //  rv =1;
     }
